@@ -11,12 +11,13 @@ PAT = 'EAAGFBcgLxk0BAJRwEv2snjQ5oyORqgpOZBBTPXy23LPbsT0vYjsEaAJw3BOHfSln1QEoawx8
 @app.route('/', methods=['GET'])
 def handle_verification():
   print "Handling Verification."
-  if request.values['hub.verify_token'] == 'my_voice_is_my_password_verify_me':
+    if "hub.verify_token" in request.values and "hub.mode" in request.values and "hub.challenge" in request.values:
+ 	 if request.values["hub.verify_token"] == 'my_voice_is_my_password_verify_me':
     print "Verification successful!"
-    return request.values['hub.challenge'],200
+    return request.values["hub.challenge"],200
   else:
     print "Verification failed!"
-    return 'Error, wrong validation token'
+    return abort(400)
 
 @app.route('/', methods=['POST'])
 def handle_messages():
