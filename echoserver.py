@@ -1,7 +1,7 @@
 from flask import Flask, request
 import json
 import requests
-from flask import abort
+
 app = Flask(__name__)
 
 # This needs to be filled with the Page Access Token that will be provided
@@ -11,11 +11,12 @@ PAT = 'EAAGFBcgLxk0BAJRwEv2snjQ5oyORqgpOZBBTPXy23LPbsT0vYjsEaAJw3BOHfSln1QEoawx8
 @app.route('/', methods=['GET'])
 def handle_verification():
   print "Handling Verification."
-
- 	if request.values["hub.verify_token"] == 'my_voice_is_my_password_verify_me':
+  if request.values['hub.verify_token'] == 'my_voice_is_my_password_verify_me':
+    print "Verification successful!"
     return request.values["hub.challenge"],200
   else:
-    return abort(400)
+    print "Verification failed!"
+    return 'Error, wrong validation token'
 
 @app.route('/', methods=['POST'])
 def handle_messages():
