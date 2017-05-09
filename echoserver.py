@@ -11,9 +11,9 @@ PAT = 'EAAGFBcgLxk0BAJRwEv2snjQ5oyORqgpOZBBTPXy23LPbsT0vYjsEaAJw3BOHfSln1QEoawx8
 @app.route('/', methods=['GET'])
 def handle_verification():
   print "Handling Verification."
-    if "hub.verify_token" in request.values and "hub.mode" in request.values and "hub.challenge" in request.values:
- 	if request.values["hub.verify_token"] == 'my_voice_is_my_password_verify_me':
-    return request.values["hub.challenge"],200
+    if "hub_verify_token" in request.values and "hub_mode" in request.values and "hub_challenge" in request.values:
+ 	if request.values["hub_verify_token"] == 'my_voice_is_my_password_verify_me':
+    return request.values["hub_challenge"],200
   else:
     return abort(400)
 
