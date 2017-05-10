@@ -9,7 +9,7 @@ app = Flask(__name__)
 # by the Facebook App that will be created.
 PAT = 'EAAGFBcgLxk0BAJRwEv2snjQ5oyORqgpOZBBTPXy23LPbsT0vYjsEaAJw3BOHfSln1QEoawx8TjaIPgPhwmpI7FmM0cdGrCwmToJmhDXllCrHZCz164XmZC4bZB0M9zFYWN2gVkIsHidJ5f3CMn7R0mTs8kg82mD9b81cqAKrBAZDZD'
 response = requests.post(
-    "https://graph.facebook.com/v2.6/me/messenger_profile?access_token=".PAT,
+    "https://graph.facebook.com/v2.6/me/messenger_profile?access_token="+PAT,
     json={
         "get_started": {
             "payload": "GET_STARTED_PAYLOAD"
