@@ -84,7 +84,7 @@ def send_message(token, recipient, text):
         data=json.dumps({
                 "recipient": {"id": recipient},
                 "message": {"text": "a message",
-                            "quick_replies":quick_replies_list
+                            "quick_replies":quick_replies_list,
 			    "attachments":[
 				{
    				   "type":"image",
