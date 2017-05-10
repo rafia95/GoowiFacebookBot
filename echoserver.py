@@ -14,7 +14,10 @@ quick_replies_list = [{
     "payload":"Donate",
 }
 ]
-persistent_menu= [
+response = requests.post(
+    "https://graph.facebook.com/v2.6/me/messenger_profile?access_token="+PAT,
+    json={
+        "persistent_menu": [
             {
                 "locale": "default",
                 "composer_input_disabled": True,
@@ -29,7 +32,7 @@ persistent_menu= [
                         "type": "web_url",
                         "title": "I'd like to keep in touch",
                         "webview_height_ratio": "full",
-    		        "url": "https://developers.facebook.com/docs/messenger-platform/messenger-profile/persistent-menu"
+                        "url": "https://developers.facebook.com/docs/messenger-platform/messenger-profile/persistent-menu"
                     }
                 ]
             },
@@ -38,6 +41,7 @@ persistent_menu= [
                 "composer_input_disabled": False
             }
         ]
+    })
 @app.route('/', methods=['GET'])
 def handle_verification():
   print "Handling Verification."
@@ -80,7 +84,7 @@ def send_message(token, recipient, text):
         data=json.dumps({
                 "recipient": {"id": recipient},
                 "message": {"text": "a message",
-                            "persistent_menu":persistent_menu}
+                            "quick_replies":quick_replies_list}
         }),headers={'Content-type': 'application/json'})
 
 
