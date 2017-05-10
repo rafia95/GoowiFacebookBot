@@ -19,16 +19,7 @@ quick_replies_list = [{
     "payload":"motivation",
 }
 ]
-response = requests.post(
-    "https://graph.facebook.com/v2.6/me/messenger_profile?access_token="+PAT,
-    json={
-        "get_started": {
-            "payload": "GET_STARTED_PAYLOAD"
-        }
-    })
 
-print "setting the start button" 
-print response
 @app.route('/', methods=['GET'])
 def handle_verification():
   print "Handling Verification."
@@ -70,14 +61,14 @@ def send_message(token, recipient, text):
     else 
         subreddit_name = "Motivation"
  if subreddit_name == "Motivation":
-r = requests.post("https://graph.facebook.com/v2.6/me/messenger_profile?access_token="+PAT,
+r = requests.post("https://graph.facebook.com/v2.6/me/messenger_profile?access_token="+token,
             data=json.dumps({
                 "recipient": {"id": recipient},
                 "message": {"text": "a message",
                             "quick_replies":quick_replies_list}
             }),
             headers={'Content-type': 'application/json'})
-else         r = requests.post("https://graph.facebook.com/v2.6/me/messenger_profile?access_token="+PAT,
+else         r = requests.post("https://graph.facebook.com/v2.6/me/messenger_profile?access_token="+token,
             data=json.dumps({
                 "recipient": {"id": recipient},
                 "message": {"text": "a message"}
