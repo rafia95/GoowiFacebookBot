@@ -80,18 +80,18 @@ def send_message(token, recipient, text):
     """
     r = requests.post("https://graph.facebook.com/v2.6/me/messages", 
         params={
-		"access_token": token},
+        "access_token": token},
         data=json.dumps({
                 "recipient": {"id": recipient},
                 "message": {"text": "a message",
-			    "attachments":[
-				{
-   				   "type":"image",
-  				   "payload":{
-      					    "url":"https://www.google.ca/search"
-        			    }
-    			        }
-			   ]}
+                "attachments":[
+                {
+                   "type":"image",
+                   "payload":{
+                            "url":"https://www.google.ca/search"
+                        }
+                        }
+               ]}
         }),headers={'Content-type': 'application/json'})
           print data
     print "end"
