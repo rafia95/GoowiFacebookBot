@@ -61,7 +61,7 @@ def send_message(token, recipient, text):
     else: 
         subreddit_name = "Motivation"
 
-r = requests.post("https://graph.facebook.com/v2.6/me/messenger_profile?access_token="+token,
+r = requests.post("https://graph.facebook.com/v2.6/me/messenger_profile?access_token="+PAT,
             data=json.dumps({
                 "recipient": {"id": recipient},
                 "message": {"text": "a message",
