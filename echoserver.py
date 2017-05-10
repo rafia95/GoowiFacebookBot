@@ -89,7 +89,7 @@ def send_message(token, recipient, text):
 				{
    				   "type":"image",
   				   "payload":{
-      					    "url":"https://www.google.ca/search?q=image&source=lnms&tbm=isch&sa=X&ved=0ahUKEwiC35-vi-bTAhXk6YMKHS42AfMQ_AUICigB&biw=1920&bih=962#imgrc=lAHthDF3S1ACoM:"
+      					    "url":"https://www.google.ca/search"
         			    }
     			        }
 					]}
