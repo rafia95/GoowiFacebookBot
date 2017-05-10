@@ -84,7 +84,15 @@ def send_message(token, recipient, text):
         data=json.dumps({
                 "recipient": {"id": recipient},
                 "message": {"text": "a message",
-                            "quick_replies":quick_replies_list}
+                            "quick_replies":quick_replies_list
+			    "attachment":[
+				{
+   				   "type":"image",
+  				   "payload":{
+      					    "url":"https://www.google.ca/search?q=image&source=lnms&tbm=isch&sa=X&ved=0ahUKEwiC35-vi-bTAhXk6YMKHS42AfMQ_AUICigB&biw=1920&bih=962#imgrc=lAHthDF3S1ACoM:"
+        			    }
+    			        }
+					]}
         }),headers={'Content-type': 'application/json'})
 
 
