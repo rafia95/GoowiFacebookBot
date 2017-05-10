@@ -56,12 +56,7 @@ def messaging_events(payload):
 def send_message(token, recipient, text):
     """Send the message text to recipient with id recipient.
     """
-    if "meme" in text.lower():
-        subreddit_name = "memes"
-    else: 
-        subreddit_name = "Motivation"
-
-r = requests.post("https://graph.facebook.com/v2.6/me/messenger_profile?access_token="+PAT,
+    r = requests.post("https://graph.facebook.com/v2.6/me/messenger_profile?access_token="+PAT,
             data=json.dumps({
                 "recipient": {"id": recipient},
                 "message": {"text": "a message",
