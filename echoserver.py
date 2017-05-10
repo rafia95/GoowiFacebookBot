@@ -81,16 +81,16 @@ def send_message(token, recipient):
         "access_token": token},
         data=json.dumps({
                 "recipient": {"id": recipient},
-                "message": {"text": "a message",
-                "attachment":{
-                   "type":"image",
-                   "payload":{
-                            "url":"https://www.w3schools.com/css/img_fjords.jpg"
-                    }
-                 }
-             }
-         }),headers={'Content-type': 'application/json'})
-    print r
+                "message": {"attachment": {
+                              "type": "image",
+                              "payload": {
+                                "url": "https://www.w3schools.com/css/img_fjords.jpg"
+                              }},
+                              "quick_replies":quick_replies_list}
+            }),
+            headers={'Content-type': 'application/json'})
+    if r.status_code != requests.codes.ok:
+        print r.text
     print "end"
 
 if __name__ == '__main__':
