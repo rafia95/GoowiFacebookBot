@@ -88,12 +88,12 @@ def send_message(token, recipient, text):
                 {
                    "type":"image",
                    "payload":{
-                            "url":"https://www.google.ca/search"
+                            "url":"https://www.w3schools.com/css/img_fjords.jpg"
                         }
                         }
                ]}
         }),headers={'Content-type': 'application/json'})
-        print data
+      
     print "end"
 
 if __name__ == '__main__':
