@@ -8,6 +8,17 @@ app = Flask(__name__)
 # This needs to be filled with the Page Access Token that will be provided
 # by the Facebook App that will be created.
 PAT = 'EAAGFBcgLxk0BAJRwEv2snjQ5oyORqgpOZBBTPXy23LPbsT0vYjsEaAJw3BOHfSln1QEoawx8TjaIPgPhwmpI7FmM0cdGrCwmToJmhDXllCrHZCz164XmZC4bZB0M9zFYWN2gVkIsHidJ5f3CMn7R0mTs8kg82mD9b81cqAKrBAZDZD'
+quick_replies_list = [{
+    "content_type":"text",
+    "title":"Meme",
+    "payload":"meme",
+},
+{
+    "content_type":"text",
+    "title":"Motivation",
+    "payload":"motivation",
+}
+]
 response = requests.post(
     "https://graph.facebook.com/v2.6/me/messenger_profile?access_token="+PAT,
     json={
@@ -28,45 +39,50 @@ def handle_verification():
     print "Verification failed!"
     return 'Error, wrong validation token'
 
-@app.route('/', methods=["POST"])
+@app.route('/', methods=['POST'])
 def handle_messages():
-    payload = request.json
+    print "Handling Messages"
+    payload = request.get_data()
+    print payload
+    for sender, message in messaging_events(payload):
+        print "Incoming from %s: %s" % (sender, message)
+        send_message(PAT, sender, message)
+    return "ok"
 
-    print request.json
-	print "in post"
-    if 'entry' in payload:
-        for entry in payload["entry"]:
-            if "messaging" in entry:
-                for message in entry["messaging"]:
-                    print message
-                    fbuid = message["sender"]["id"]
-                    timestamp = datetime.fromtimestamp(int(message["timestamp"])/1000)
+def messaging_events(payload):
+    """Generate tuples of (sender_id, message_text) from the
+    provided payload.
+    """
+    data = json.loads(payload)
+    messaging_events = data["entry"][0]["messaging"]
+    for event in messaging_events:
+        if "message" in event and "text" in event["message"]:
+            yield event["sender"]["id"], event["message"]["text"].encode('unicode_escape')
+        else:
+            yield event["sender"]["id"], "I can't echo this"
 
-                    if "message" in message:
-			print "Incoming from %s: %s" % (fbuid, message["message"]["text"])
-   		        send_message(PAT, sender, 'this is the default reply')
-                       
-                    elif "postback" in message:
-                        payload = message["postback"]["payload"]
-			print payload
-                        
-
-
-    return "", 200
 
 def send_message(token, recipient, text):
-  """Send the message text to recipient with id recipient.
-  """
-
-  r = requests.post("https://graph.facebook.com/v2.6/me/messages",
-    params={"access_token": token},
-    data=json.dumps({
-      "recipient": {"id": recipient},
-      "message": {"text": text.decode('unicode_escape')}
-    }),
-    headers={'Content-type': 'application/json'})
-  if r.status_code != requests.codes.ok:
-    print r.text
+    """Send the message text to recipient with id recipient.
+    """
+    if "meme" in text.lower():
+        subreddit_name = "memes"
+    else 
+        subreddit_name = "Motivation"
+ if subreddit_name == "Motivation":
+r = requests.post("https://graph.facebook.com/v2.6/me/messenger_profile?access_token="+PAT,
+            data=json.dumps({
+                "recipient": {"id": recipient},
+                "message": {"text": "a message",
+                            "quick_replies":quick_replies_list}
+            }),
+            headers={'Content-type': 'application/json'})
+else         r = requests.post("https://graph.facebook.com/v2.6/me/messenger_profile?access_token="+PAT,
+            data=json.dumps({
+                "recipient": {"id": recipient},
+                "message": {"text": "a message"}
+            }),
+            headers={'Content-type': 'application/json'})
 
 if __name__ == '__main__':
   app.run()
