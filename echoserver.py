@@ -89,8 +89,7 @@ def send_message(token, recipient):
                               "quick_replies":quick_replies_list}
             }),
             headers={'Content-type': 'application/json'})
-    if r.status_code != requests.codes.ok:
-        print r.text
+    print r.text
     print "end"
 
 if __name__ == '__main__':
