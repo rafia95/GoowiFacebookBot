@@ -15,6 +15,8 @@ response = requests.post(
             "payload": "GET_STARTED_PAYLOAD"
         }
     })
+print "setting the start button" 
+print response
 @app.route('/', methods=['GET'])
 def handle_verification():
   print "Handling Verification."
