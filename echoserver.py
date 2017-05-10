@@ -84,7 +84,6 @@ def send_message(token, recipient, text):
         data=json.dumps({
                 "recipient": {"id": recipient},
                 "message": {"text": "a message",
-                            "quick_replies":quick_replies_list,
 			    "attachments":[
 				{
    				   "type":"image",
@@ -92,8 +91,9 @@ def send_message(token, recipient, text):
       					    "url":"https://www.google.ca/search"
         			    }
     			        }
-					]}
+			   ]}
         }),headers={'Content-type': 'application/json'})
+    print data
     print "end"
 
 if __name__ == '__main__':
