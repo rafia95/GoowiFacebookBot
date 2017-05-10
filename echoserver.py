@@ -58,7 +58,7 @@ def send_message(token, recipient, text):
     """
     if "meme" in text.lower():
         subreddit_name = "memes"
-    else 
+    else: 
         subreddit_name = "Motivation"
  if subreddit_name == "Motivation":
 r = requests.post("https://graph.facebook.com/v2.6/me/messenger_profile?access_token="+token,
@@ -68,7 +68,7 @@ r = requests.post("https://graph.facebook.com/v2.6/me/messenger_profile?access_t
                             "quick_replies":quick_replies_list}
             }),
             headers={'Content-type': 'application/json'})
-else         r = requests.post("https://graph.facebook.com/v2.6/me/messenger_profile?access_token="+token,
+else:         r = requests.post("https://graph.facebook.com/v2.6/me/messenger_profile?access_token="+token,
             data=json.dumps({
                 "recipient": {"id": recipient},
                 "message": {"text": "a message"}
