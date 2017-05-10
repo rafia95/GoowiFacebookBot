@@ -10,16 +10,34 @@ app = Flask(__name__)
 PAT = 'EAAGFBcgLxk0BAJRwEv2snjQ5oyORqgpOZBBTPXy23LPbsT0vYjsEaAJw3BOHfSln1QEoawx8TjaIPgPhwmpI7FmM0cdGrCwmToJmhDXllCrHZCz164XmZC4bZB0M9zFYWN2gVkIsHidJ5f3CMn7R0mTs8kg82mD9b81cqAKrBAZDZD'
 quick_replies_list = [{
     "content_type":"text",
-    "title":"Meme",
-    "payload":"meme",
-},
-{
-    "content_type":"text",
-    "title":"Motivation",
-    "payload":"motivation",
+    "title":"Donate",
+    "payload":"Donate",
 }
 ]
-
+persistent_menu= [
+            {
+                "locale": "default",
+                "composer_input_disabled": True,
+                "call_to_actions": [
+                    {
+                        "type": "web_url",
+                        "title": "I'd like to be a supporter",
+                        "webview_height_ratio": "full",
+                        "url": "https://developers.facebook.com/docs/messenger-platform/messenger-profile/persistent-menu"
+                    },
+                    {
+                        "type": "web_url",
+                        "title": "I'd like to keep in touch",
+                        "webview_height_ratio": "full",
+    		        "url": "https://developers.facebook.com/docs/messenger-platform/messenger-profile/persistent-menu"
+                    }
+                ]
+            },
+            {
+                "locale": "zh_CN",
+                "composer_input_disabled": False
+            }
+        ]
 @app.route('/', methods=['GET'])
 def handle_verification():
   print "Handling Verification."
@@ -62,7 +80,7 @@ def send_message(token, recipient, text):
         data=json.dumps({
                 "recipient": {"id": recipient},
                 "message": {"text": "a message",
-                            "quick_replies":quick_replies_list}
+                            "persistent_menu":persistent_menu}
         }),headers={'Content-type': 'application/json'})
 
 
