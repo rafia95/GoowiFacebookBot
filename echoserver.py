@@ -85,7 +85,7 @@ def send_message(token, recipient, text):
                 "recipient": {"id": recipient},
                 "message": {"text": "a message",
                             "quick_replies":quick_replies_list
-			    "attachment":[
+			    "attachments":[
 				{
    				   "type":"image",
   				   "payload":{
