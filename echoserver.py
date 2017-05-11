@@ -98,7 +98,7 @@ def send_message(token, recipient):
                                                   ]
                                       }
                                       ]
-                                      }
+                                      }}
                              }),
                                headers={'Content-type': 'application/json'})
     print r.text
