@@ -24,13 +24,13 @@ response = requests.post(
                     {
                         "type": "web_url",
                         "title": "I'd like to donate to dawson",
-                        "webview_height_ratio": "full",
+                        "webview_height_ratio": "compact",
                         "url": "https://dawson.goowi.com"
                     },
                     {
                         "type": "web_url",
                         "title": "I'd like to keep in touch",
-                        "webview_height_ratio": "full",
+                        "webview_height_ratio": "tall",
                         "url": "https://www.goowi.com"
                     }
                 ]
@@ -82,21 +82,8 @@ def send_message(token, recipient):
         data=json.dumps({
                 "recipient": {"id": recipient},
                 "text":"Goowi will contact you shortly with the answer.",
-                "attachment":{
-                            "type":"template",
-                            "payload":{
-                            "template_type":"generic",
-                            "element":{
-                                        "title":"Breaking News: Record Thunderstorms",
-                                        "subtitle":"The local area is due for record thunderstorms over the weekend.",
-                                        "image_url":"https://www.w3schools.com/css/img_fjords.jpg",
-                                        "button":{
-                                                   "type":"element_share"
-                                                 }              
-                                      }
-                                      }}
-                             }),
-                               headers={'Content-type': 'application/json'})
+                       }),
+                     headers={'Content-type': 'application/json'})
     print r.text
     print "end"
 
