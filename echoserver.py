@@ -5,8 +5,7 @@ import requests
 
 app = Flask(__name__)
 
-# This needs to be filled with the Page Access Token that will be provided
-# by the Facebook App that will be created.
+
 PAT = 'EAAGFBcgLxk0BAJRwEv2snjQ5oyORqgpOZBBTPXy23LPbsT0vYjsEaAJw3BOHfSln1QEoawx8TjaIPgPhwmpI7FmM0cdGrCwmToJmhDXllCrHZCz164XmZC4bZB0M9zFYWN2gVkIsHidJ5f3CMn7R0mTs8kg82mD9b81cqAKrBAZDZD'
 quick_replies_list = [{
     "content_type":"text",
@@ -82,12 +81,12 @@ def send_message(token, recipient):
         "access_token": token},
         data=json.dumps({
                 "recipient": {"id": recipient},
+                "text":"Goowi will contact you shortly with the answer."
                 "message": {"attachment": {
                               "type": "image",
                               "payload": {
-                                "url": "https://www.w3schools.com/css/img_fjords.jpg"
-                              }},
-                              "quick_replies":quick_replies_list}
+                                "url": "https://www.goowi.com/faces/javax.faces.resource/images/logo.png"
+                              }}}
             }),
             headers={'Content-type': 'application/json'})
     print r.text
