@@ -26,13 +26,13 @@ response = requests.post(
                         "type": "web_url",
                         "title": "I'd like to be a supporter",
                         "webview_height_ratio": "full",
-                        "url": "https://dawson.goowi.com/"
+                        "url": "https://dawson.goowi.com"
                     },
                     {
                         "type": "web_url",
                         "title": "I'd like to keep in touch",
                         "webview_height_ratio": "full",
-                        "url": "https://www.goowi.com/"
+                        "url": "https://www.goowi.com"
                     }
                 ]
             },
