@@ -84,7 +84,7 @@ def send_message(token, recipient):
                 "message": {"attachment": {
                               "type": "image",
                               "payload": {
-                                "url": "https://dawson.goowi.com/"
+                                "url": "https://www.w3schools.com/css/img_fjords.jpg"
                               }},
                               "quick_replies":quick_replies_list}
             }),
