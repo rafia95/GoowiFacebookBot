@@ -61,7 +61,7 @@ response = requests.post(
                 "call_to_actions": [
                     {
                         "type": "web_url",
-                        "title": "I'd like to be a supporter",
+                        "title": "I'd like to make a donation",
                         "webview_height_ratio": "full",
                         "url": "https://blog.hartleybrody.com/fb-messenger-bot/"
                     },
