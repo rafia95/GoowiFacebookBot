@@ -24,15 +24,15 @@ response = requests.post(
                 "call_to_actions": [
                     {
                         "type": "web_url",
-                        "title": "I'd like to be a supporter",
+                        "title": "I'd like to donate",
                         "webview_height_ratio": "full",
-                        "url": "https://developers.facebook.com/docs/messenger-platform/messenger-profile/persistent-menu"
+                        "url": "https://dawson.goowi.com/"
                     },
                     {
                         "type": "web_url",
                         "title": "I'd like to keep in touch",
                         "webview_height_ratio": "full",
-                        "url": "https://developers.facebook.com/docs/messenger-platform/messenger-profile/persistent-menu"
+                        "url": "https://www.facebook.com/goowinet"
                     }
                 ]
             },
@@ -84,7 +84,7 @@ def send_message(token, recipient):
                 "message": {"attachment": {
                               "type": "image",
                               "payload": {
-                                "url": "https://www.w3schools.com/css/img_fjords.jpg"
+                                "url": "https://dawson.goowi.com/"
                               }},
                               "quick_replies":quick_replies_list}
             }),
