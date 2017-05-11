@@ -45,9 +45,9 @@ response = requests.post(
 def handle_verification():
   print "Handling Verification."
   print request.args
-  if request.args.get('hub.verify_token') == 'my_voice_is_my_password_verify_me':
+  if request.args.get('hub.verify_token', '') == 'my_voice_is_my_password_verify_me':
     print "Verification successful!"
-    return "ok", 200
+    return request.args.get('hub.challenge', '')
   else:
     print "Verification failed :(!"
     return 'Error, wrong validation token :('
