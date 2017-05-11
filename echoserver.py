@@ -6,7 +6,7 @@ import requests
 app = Flask(__name__)
 
 
-PAT = 'EAAGFBcgLxk0BAJRwEv2snjQ5oyORqgpOZBBTPXy23LPbsT0vYjsEaAJw3BOHfSln1QEoawx8TjaIPgPhwmpI7FmM0cdGrCwmToJmhDXllCrHZCz164XmZC4bZB0M9zFYWN2gVkIsHidJ5f3CMn7R0mTs8kg82mD9b81cqAKrBAZDZD'
+PAT = 'EAAac8i8oLpQBAHoF5d0wQ6zOTtmpCvv6H9anamdGLip8A4iOD5eapr3wVZBekblcGyZCJEviIdc2JUucH8Eu83Vkdo6yAiQx7OZAtgz7axo27pt8e3YaS3fRXuXK0DNhWHRRlzmq2NBGBEOZAJ3336ZAlGl8aamT2euEjrWGSlwZDZD'
 quick_replies_list = [{
     "content_type":"text",
     "title":"Donate",
