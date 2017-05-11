@@ -49,8 +49,8 @@ def handle_verification():
     print "Verification successful!"
     return 'Its good'
   else:
-    print "Verification failed!"
-    return 'Error, wrong validation token'
+    print "Verification failed :(!"
+    return 'Error, wrong validation token :('
 
 @app.route('/', methods=['POST'])
 def handle_messages():
