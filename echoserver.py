@@ -24,7 +24,7 @@ response = requests.post(
                 "call_to_actions": [
                     {
                         "type": "web_url",
-                        "title": "I'd like to be a supporter",
+                        "title": "I'd like to donate",
                         "webview_height_ratio": "full",
                         "url": "https://dawson.goowi.com"
                     },
