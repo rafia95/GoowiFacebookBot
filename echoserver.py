@@ -86,7 +86,7 @@ def send_message(token, recipient):
                               "type": "image",
                               "payload": {
                                 "url": "https://www.goowi.com/faces/javax.faces.resource/images/logo.png"
-                              }}}
+                              }}, "quick_replies":quick_replies_list}
             }),
             headers={'Content-type': 'application/json'})
     print r.text
