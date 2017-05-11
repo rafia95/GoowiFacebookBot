@@ -82,8 +82,26 @@ def send_message(token, recipient):
         data=json.dumps({
                 "recipient": {"id": recipient},
                 "message":{
-                "text":"Goowi will contact you shortly with the answer."
-                 }
+                "text":"Goowi will contact you shortly with the answer.",
+                "attachment":{
+                              "type":"template",
+                              "payload":{
+                              "template_type":"generic",
+                              "elements":[
+                                         {
+                                          "title":"Breaking News: Record Thunderstorms",
+                                          "subtitle":"The local area is due for record thunderstorms over the weekend.",
+                                          "image_url":"https://s3-us-west-1.amazonaws.com/powr/defaults/image-slider2.jpg",
+                                          "buttons":[
+                                                    {
+                                                      "type":"element_share"
+                                                    }              
+                                                    ]
+                                         }
+                                         ]
+                                        }
+                             }
+                           }
                        }),
                      headers={'Content-type': 'application/json'})
     print r.text
