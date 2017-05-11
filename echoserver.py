@@ -86,18 +86,14 @@ def send_message(token, recipient):
                             "type":"template",
                             "payload":{
                             "template_type":"generic",
-                            "elements":[
-                                       {
+                            "element":{
                                         "title":"Breaking News: Record Thunderstorms",
                                         "subtitle":"The local area is due for record thunderstorms over the weekend.",
                                         "image_url":"https://www.w3schools.com/css/img_fjords.jpg",
-                                        "buttons":[
-                                                  {
+                                        "button":{
                                                    "type":"element_share"
-                                                  }              
-                                                  ]
+                                                 }              
                                       }
-                                      ]
                                       }}
                              }),
                                headers={'Content-type': 'application/json'})
