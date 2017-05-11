@@ -16,6 +16,23 @@ quick_replies_list = [{
 response = requests.post(
     "https://graph.facebook.com/v2.6/me/messenger_profile?access_token="+PAT,
     json={
+        "get_started": {
+            "payload": "GET_STARTED_PAYLOAD"
+        }
+    })
+response = requests.post(
+    "https://graph.facebook.com/v2.6/me/messenger_profile?access_token={}".format(GOOWI_EVENTS_FACEBOOK_PAGE_TOKEN),
+    json={
+        "greeting": [
+            {
+                "locale": "default",
+                "text": "Spreading Goodwill"
+            }
+        ]
+    })
+response = requests.post(
+    "https://graph.facebook.com/v2.6/me/messenger_profile?access_token="+PAT,
+    json={
         "persistent_menu": [
             {
                 "locale": "default",
@@ -90,7 +107,7 @@ def send_message(token, recipient):
                                          {
                                           "title":"Breaking News: Record Thunderstorms",
                                           "subtitle":"The local area is due for record thunderstorms over the weekend.",
-                                          "image_url":"https://s3-us-west-1.amazonaws.com/powr/defaults/image-slider2.jpg",
+                                          "image_url":"https://www.w3schools.com/css/img_fjords.jpg",
                                           "buttons":[
                                                     {
                                                       "type":"element_share"
