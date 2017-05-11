@@ -26,13 +26,13 @@ response = requests.post(
                         "type": "web_url",
                         "title": "I'd like to be a supporter",
                         "webview_height_ratio": "full",
-                        "url": "https://developers.facebook.com/docs/messenger-platform/messenger-profile/persistent-menu"
+                        "url": "https://dawson.goowi.com/"
                     },
                     {
                         "type": "web_url",
                         "title": "I'd like to keep in touch",
                         "webview_height_ratio": "full",
-                        "url": "https://developers.facebook.com/docs/messenger-platform/messenger-profile/persistent-menu"
+                        "url": "https://www.goowi.com/"
                     }
                 ]
             },
