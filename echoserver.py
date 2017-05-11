@@ -24,15 +24,15 @@ response = requests.post(
                 "call_to_actions": [
                     {
                         "type": "web_url",
-                        "title": "I'd like to donate",
+                        "title": "I'd like to be a supporter",
                         "webview_height_ratio": "full",
-                        "url": "https://dawson.goowi.com/"
+                        "url": "https://developers.facebook.com/docs/messenger-platform/messenger-profile/persistent-menu"
                     },
                     {
                         "type": "web_url",
                         "title": "I'd like to keep in touch",
                         "webview_height_ratio": "full",
-                        "url": "https://www.facebook.com/goowinet"
+                        "url": "https://developers.facebook.com/docs/messenger-platform/messenger-profile/persistent-menu"
                     }
                 ]
             },
