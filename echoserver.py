@@ -82,7 +82,6 @@ def send_message(token, recipient):
         data=json.dumps({
                 "recipient": {"id": recipient},
                 "message":{
-                "text":"Goowi will contact you shortly with the answer.",
                 "attachment":{
                               "type":"template",
                               "payload":{
