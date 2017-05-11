@@ -81,7 +81,7 @@ def send_message(token, recipient):
         "access_token": token},
         data=json.dumps({
                 "recipient": {"id": recipient},
-                "text":"Goowi will contact you shortly with the answer."
+                "text":"Goowi will contact you shortly with the answer.",
                 "message": {"attachment": {
                               "type": "image",
                               "payload": {
