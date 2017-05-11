@@ -21,7 +21,7 @@ response = requests.post(
         }
     })
 response = requests.post(
-    "https://graph.facebook.com/v2.6/me/messenger_profile?access_token={}".format(GOOWI_EVENTS_FACEBOOK_PAGE_TOKEN),
+    "https://graph.facebook.com/v2.6/me/messenger_profile?access_token="+PAT,
     json={
         "greeting": [
             {
