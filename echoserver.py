@@ -16,34 +16,7 @@ response = requests.post(
         }
     })
 print "get stared send , sending menu"
-response = requests.post(
-    "https://graph.facebook.com/v2.6/me/messenger_profile?access_token="+PAT,
-    json={
-        "persistent_menu": [
-            {
-                "locale": "default",
-                "composer_input_disabled": False,
-                "call_to_actions": [
-                    {
-                        "type": "web_url",
-                        "title": "I'd like to donate",
-                        "webview_height_ratio": "compact",
-                        "url": "https://dawson.goowi.com"
-                    },
-                    {
-                        "type": "web_url",
-                        "title": "I'd like to keep in touch",
-                        "webview_height_ratio": "tall",
-                        "url": "https://www.goowi.com"
-                    }
-                ]
-            },
-            {
-                "locale": "zh_CN",
-                "composer_input_disabled": False
-            }
-        ]
-    })
+
 @app.route('/', methods=['GET'])
 def handle_verification():
   print "Handling Verification."
