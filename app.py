@@ -6,16 +6,18 @@ import requests
 app = Flask(__name__)
 
 
-PAT = 'EAAac8i8oLpQBAHoF5d0wQ6zOTtmpCvv6H9anamdGLip8A4iOD5eapr3wVZBekblcGyZCJEviIdc2JUucH8Eu83Vkdo6yAiQx7OZAtgz7axo27pt8e3YaS3fRXuXK0DNhWHRRlzmq2NBGBEOZAJ3336ZAlGl8aamT2euEjrWGSlwZDZD'
+PAT = 'EAAByUk5i2t4BADo8aEPw0poMt9czijMXzKTRt6KcYYNF2Kjb6j9IYS6vU1xgGbD7eZBLhFJnyRZBKsWnEc2PJsfDZCZCnA0uzMHfca2xIBaQBPaVq8eyEFKBewRKhS85sZB7UeTWjsnGnJ3M9hUv7CZB05JepP1CN8uG7PEpmIzwZDZD'
 
 response = requests.post(
     "https://graph.facebook.com/v2.6/me/messenger_profile?access_token="+PAT,
     json={
-        "get_started": {
-            "payload": "GET_STARTED_PAYLOAD"
+          "setting_type":"call_to_actions",
+          "thread_state":"new_thread",
+          "get_started": {
+            "payload": "first hand shake"
         }
     })
-print "get stared send , sending menu"
+
 
 @app.route('/', methods=['GET'])
 def handle_verification():
