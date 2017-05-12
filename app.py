@@ -17,8 +17,45 @@ response = requests.post(
             "payload": "first hand shake"
         }
     })
-
-
+response = requests.post(
+    "https://graph.facebook.com/v2.6/me/messenger_profile?access_token="+PAT,
+    json={
+        "setting_type":"greeting",
+        "greeting": [
+            {
+                "locale": "default",
+                "text": "Goowi offers new ways to help make a change in the world by supporting charities. Please feel welcome to ask us questions."
+            }
+        ]
+    })
+response = requests.post(
+    "https://graph.facebook.com/v2.6/me/messenger_profile?access_token="+PAT,
+    json={
+        "persistent_menu": [
+            {
+                "locale": "default",
+                "composer_input_disabled": False,
+                "call_to_actions": [
+                    {
+                        "type": "web_url",
+                        "title": "I'd like to donate to dawson",
+                        "webview_height_ratio": "compact",
+                        "url": "https://dawson.goowi.com"
+                    },
+                    {
+                        "type": "web_url",
+                        "title": "I'd like to keep in touch",
+                        "webview_height_ratio": "tall",
+                        "url": "https://www.goowi.com"
+                    }
+                ]
+            },
+            {
+                "locale": "zh_CN",
+                "composer_input_disabled": False
+            }
+        ]
+    })
 @app.route('/', methods=['GET'])
 def handle_verification():
   print "Handling Verification."
@@ -49,6 +86,8 @@ def messaging_events(payload):
     for event in messaging_events:
         if "message" in event and "text" in event["message"]:
             yield event["sender"]["id"], event["message"]["text"].encode('unicode_escape')
+	elif "postback" in event and "payload" in event["postback"]:
+            yield event["sender"]["id"], event["postback"]["payload"].encode('unicode_escape')
         else:
             yield event["sender"]["id"], "I can't echo this"
 
