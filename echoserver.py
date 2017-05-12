@@ -16,20 +16,13 @@ quick_replies_list = [{
 response = requests.post(
     "https://graph.facebook.com/v2.6/me/messenger_profile?access_token="+PAT,
     json={
-        "get_started": {
+          "setting_type":"call_to_actions",
+          "thread_state":"new_thread",
+          "get_started": {
             "payload": "GET_STARTED_PAYLOAD"
         }
     })
-response = requests.post(
-    "https://graph.facebook.com/v2.6/me/messenger_profile?access_token="+PAT,
-    json={
-        "greeting": [
-            {
-                "locale": "default",
-                "text": "Spreading Goodwill"
-            }
-        ]
-    })
+
 response = requests.post(
     "https://graph.facebook.com/v2.6/me/messenger_profile?access_token="+PAT,
     json={
@@ -106,7 +99,7 @@ def send_message(token, recipient):
                               "elements":[
                                          {
                                           "title":"Goowi will contact you shortly with the answer.",
-                                          "image_url":"https://www.goowi.com/faces/javax.faces.resource/images/smiling_women.jpg",
+                                          "image_url":"https://www.goowi.com/faces/javax.faces.resource/images/logo.png",
                                           "buttons":[
                                                     {
                                                       "type":"element_share"
