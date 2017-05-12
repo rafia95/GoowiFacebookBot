@@ -107,12 +107,6 @@ def send_message(token, recipient):
                      headers={'Content-type': 'application/json'})
     print r.text
     print "end"
-response = requests.get(
-    "https://graph.facebook.com/v2.6/me/messenger_profile",
-    {
-        "access_token": PAT,
-        "fields": "persistent_menu,get_started"
-    }
-)
+
 if __name__ == '__main__':
   app.run()
