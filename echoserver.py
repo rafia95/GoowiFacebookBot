@@ -19,7 +19,7 @@ response = requests.post(
           "setting_type":"call_to_actions",
           "thread_state":"new_thread",
           "get_started": {
-            "payload": "GET_STARTED_PAYLOAD"
+            "payload": "First hand shake"
         }
     })
 
