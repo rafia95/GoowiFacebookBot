@@ -15,9 +15,9 @@ response = requests.post(
           "thread_state":"new_thread",
           "get_started": {
             "payload": "First hand shake"
-        }
-    })
-
+          }
+         })
+print "get stared send , sending menu"
 response = requests.post(
     "https://graph.facebook.com/v2.6/me/messenger_profile?access_token="+PAT,
     json={
