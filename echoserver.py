@@ -33,7 +33,7 @@ response = requests.post(
                 "call_to_actions": [
                     {
                         "type": "web_url",
-                        "title": "I'd like to donate to dawson",
+                        "title": "I'd like to donate",
                         "webview_height_ratio": "compact",
                         "url": "https://dawson.goowi.com"
                     },
