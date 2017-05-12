@@ -105,9 +105,8 @@ def send_message(token, recipient):
                               "template_type":"generic",
                               "elements":[
                                          {
-                                          "title":"Breaking News: Record Thunderstorms",
-                                          "subtitle":"The local area is due for record thunderstorms over the weekend.",
-                                          "image_url":"https://www.w3schools.com/css/img_fjords.jpg",
+                                          "title":"Goowi will contact you shortly with the answer.",
+                                          "image_url":"https://www.goowi.com/faces/javax.faces.resource/images/smiling_women.jpg",
                                           "buttons":[
                                                     {
                                                       "type":"element_share"
