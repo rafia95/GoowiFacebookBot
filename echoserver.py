@@ -11,10 +11,10 @@ PAT = 'EAAac8i8oLpQBAHoF5d0wQ6zOTtmpCvv6H9anamdGLip8A4iOD5eapr3wVZBekblcGyZCJEvi
 response = requests.post(
     "https://graph.facebook.com/v2.6/me/messenger_profile?access_token="+PAT,
     json={
-          "get_started": {
-            "payload": "First hand shake"
-          }
-         })
+        "get_started": {
+            "payload": "GET_STARTED_PAYLOAD"
+        }
+    })
 print "get stared send , sending menu"
 response = requests.post(
     "https://graph.facebook.com/v2.6/me/messenger_profile?access_token="+PAT,
