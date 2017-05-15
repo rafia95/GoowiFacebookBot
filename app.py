@@ -81,11 +81,11 @@ def handle_messages():
     payload = request.get_data()
     print payload
     hiddenkey = "3d39f740aa5d969e1a5bbb7b7dde643d"
-  
+    key = hiddenkey.encode("UTF-8")
     message = unicode(payload).encode('unicode_escape')
     print message 
-  
-    digester = hmac.new(signature,message,hashlib.sha1)
+ 
+    digester = hmac.new(hiddenkey,message,hashlib.sha1)
     signature1 = digester.digest()
     print "signature is coming"
     print signature1
