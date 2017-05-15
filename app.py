@@ -92,7 +92,7 @@ def handle_messages():
        return "ok"
     else: 
        print "Request not from facebook, signatures do not match!"
-       return 400
+       return "Bad Request",400
 
 def messaging_events(payload):
     """Generate tuples of (sender_id, message_text) from the
