@@ -83,16 +83,16 @@ def handle_messages():
     hiddenkey = "3d39f740aa5d969e1a5bbb7b7dde643d"
     digester = hmac.new(hiddenkey,payload,hashlib.sha1)
     generated_signature = "sha1="+digester.hexdigest()
-    print "signature is coming"
     print generated_signature
     if signature == generated_signature:
        print "Request is coming from facebook"
+       for sender, message in messaging_events(payload):
+           print "Incoming from %s: %s" % (sender, message)
+           send_message(PAT, sender)
+       return "ok"
     else: 
        print "Request not from facebook, signatures do not match!"
-    for sender, message in messaging_events(payload):
-        print "Incoming from %s: %s" % (sender, message)
-        send_message(PAT, sender)
-    return "ok"
+       return 400
 
 def messaging_events(payload):
     """Generate tuples of (sender_id, message_text) from the
