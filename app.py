@@ -65,7 +65,7 @@ def handle_verification():
         if request.values["hub.verify_token"] == VERIFY_WEBHOOK_KEY:
             print "Verification successful!"
             return request.values["hub.challenge"], 200
-        return 400
+  return "bad token"
 
 
 @app.route('/', methods=['POST'])
