@@ -86,7 +86,7 @@ def handle_messages():
     print message 
  
     digester = hmac.new(hiddenkey,message,hashlib.sha1)
-    signature1 = digester.digest()
+    signature1 = digester.hexdigest()
     print "signature is coming"
     print signature1
     signature2 = base64.urlsafe_b64encode(signature1)
