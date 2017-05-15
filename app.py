@@ -62,7 +62,7 @@ def handle_verification():
   print request.get_data()
   print request.args
   if "hub.verify_token" in request.values and "hub.mode" in request.values and "hub.challenge" in request.values:
-        if request.values["hub.verify_token"] == VERIFY_WEBHOOK_KEY:
+        if request.values["hub.verify_token"] == 'my_voice_is_my_password_verify_me':
             print "Verification successful!"
             return request.values["hub.challenge"], 200
   return "bad token"
@@ -72,6 +72,7 @@ def handle_verification():
 def handle_messages():
     print "Handling Messages"
     print request.args
+    print request.headers
     payload = request.get_data()
     print payload
     for sender, message in messaging_events(payload):
