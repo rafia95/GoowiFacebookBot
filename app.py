@@ -82,7 +82,7 @@ def handle_messages():
     print payload
     hiddenkey = "3d39f740aa5d969e1a5bbb7b7dde643d"
     digester = hmac.new(hiddenkey,payload,hashlib.sha1)
-    generated_signature = digester.hexdigest()
+    generated_signature = "sha1="+digester.hexdigest()
     print "signature is coming"
     print generated_signature
     if signature == generated_signature:
