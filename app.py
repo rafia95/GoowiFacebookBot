@@ -87,6 +87,8 @@ def handle_messages():
     signature1 = digester.digest()
     print "signature is coming"
     print signature1
+    signature2 = base64.urlsafe_b64encode(signature1)
+    print signature2.decode("UTF-8")
 
     for sender, message in messaging_events(payload):
         print "Incoming from %s: %s" % (sender, message)
