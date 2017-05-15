@@ -61,12 +61,12 @@ def handle_verification():
   print "Handling Verification."
   print request.get_data()
   print request.args
-  if request.args.get('hub.verify_token') == 'my_voice_is_my_password_verify_me':
-    print "Verification successful!"
-    return "hi"
-  else:
-    print "Verification failed :(!"
-    return 'Error, wrong validation token :(('
+  if "hub.verify_token" in request.values and "hub.mode" in request.values and "hub.challenge" in request.values:
+        if request.values["hub.verify_token"] == VERIFY_WEBHOOK_KEY:
+            print "Verification successful!"
+            return request.values["hub.challenge"], 200
+    return abort(400)
+
 
 @app.route('/', methods=['POST'])
 def handle_messages():
