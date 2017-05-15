@@ -74,7 +74,6 @@ def handle_messages():
     print request.args
     print request.headers
     print request.headers.get("X-Hub-Signature")
-    print request.headers.values["X-Hub-Signature"]
     payload = request.get_data()
     print payload
     for sender, message in messaging_events(payload):
