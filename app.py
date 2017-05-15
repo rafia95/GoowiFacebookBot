@@ -82,7 +82,9 @@ def handle_messages():
     print payload
     hiddenkey = "3d39f740aa5d969e1a5bbb7b7dde643d"
     key = hiddenkey.encode("UTF-8")
-    message = payload.encode("UTF-8")
+    message = unicode(payload).encode('unicode_escape')
+    print message 
+    message = message.encode("UTF-8")
     print "message is coming"
     print message
     digester = hmac.new(key,message,hashlib.sha1)
