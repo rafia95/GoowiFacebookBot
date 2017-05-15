@@ -2,6 +2,9 @@ from flask import Flask
 from flask import request
 import json
 import requests
+import hashlib
+import hmac
+import base64
 
 app = Flask(__name__)
 
@@ -74,8 +77,16 @@ def handle_messages():
     print request.args
     print request.headers
     print request.headers.get("X-Hub-Signature")
+    signature = request.headers.get("X-Hub-Signature")
     payload = request.get_data()
     print payload
+    key = bytes("3d39f740aa5d969e1a5bbb7b7dde643d","UTF-8")
+    message = bytes(payload,"UTF-8")
+    digester = hmac.new(key,message,hashlib.sha1)
+    signature1 = digester.digest()
+    print "signature is coming"
+    print signature1
+
     for sender, message in messaging_events(payload):
         print "Incoming from %s: %s" % (sender, message)
         send_message(PAT, sender)
