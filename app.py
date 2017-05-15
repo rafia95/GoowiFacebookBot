@@ -81,17 +81,12 @@ def handle_messages():
     payload = request.get_data()
     print payload
     hiddenkey = "3d39f740aa5d969e1a5bbb7b7dde643d"
-    key = hiddenkey.encode("UTF-8")
-    message = payload.encode('latin-1')
-    print message 
- 
-    digester = hmac.new(hiddenkey,message,hashlib.sha1)
-    signature1 = digester.hexdigest()
+    digester = hmac.new(hiddenkey,payload,hashlib.sha1)
+    generated_signature = digester.hexdigest()
     print "signature is coming"
-    print signature1
-    signature2 = base64.urlsafe_b64encode(signature1)
-    print signature2.decode("UTF-8")
-
+    print generated_signature
+    if signature == generated_signature:
+       print "Request is coming from facebook"
     for sender, message in messaging_events(payload):
         print "Incoming from %s: %s" % (sender, message)
         send_message(PAT, sender)
